@@ -2,25 +2,29 @@
 #define H_ORTU_H_INCLUDED
 #define next(P) P->next
 #define prev(P) P->prev
+#define info(P) P->info
 #define first(L) L.first
 #define last(L) L.last
+
+using namespace std;
 
 typedef struct elmlist_anak*address;
 struct anak{
     string nama;
-    int ttl;
+    string tmpt;
+    int tl;
     int tahunlahir;
     string tempattinggal;
 };
 struct elmlist_anak{
     anak info;
-    next address;
-    prev address;
+    address next;
+    address prev;
 };
 
 struct listAnak{
-    first address;
-    last address;
+    address first;
+    address last;
 };
 
 void createList(listAnak &L);
@@ -28,6 +32,7 @@ bool isEmpty(listAnak L);
 void createElementAnak(address &P);
 void tambahDataAnak(listAnak L, address P);
 void hapusDataAnakTertentu(listAnak &L, address &Prec, address &P);
+void cariDataAnak(listAnak L);
 void tampilkanDataAnak(listAnak L);
 
 

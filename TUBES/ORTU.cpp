@@ -1,6 +1,5 @@
 #include <iostream>
 #include "h.ORTU.h"
-#include "h.AMER.h"
 
 void createList(listAnak &L){
     first(L) = NULL;
@@ -14,8 +13,11 @@ bool isEmpty(listAnak L){
     }
 }
 void createElementAnak(address &P){
-    string nama, tempattinggal, tmpt;
-    int tl, tahunlahir;
+    string nama;
+    string tempattinggal;
+    string tmpt;
+    int tl;
+    int tahunlahir;
 
     P = new elmlist_anak;
     next(P) = NULL;
@@ -42,9 +44,10 @@ void createElementAnak(address &P){
     cout<<endl;
     cout<<"UMUR : ";
     info(P).tahunlahir = 2020 - tahunlahir;
+    cout<<info(P).tahunlahir;
     cout<<endl;
 
-    cout<<"SERUMAH DENGAN ANAK : "<<endl;
+    cout<<"SERUMAH DENGAN ORTU : "<<endl;
     cout<<"YA"<<endl;
     cout<<"TIDAK"<<endl;
     cin>>tempattinggal;
@@ -57,16 +60,28 @@ void createElementAnak(address &P){
     }
 
 }
-void tambahDataAnak(listAnak L, address P){
+void tambahDataAnak(listAnak &L, address P){
     if (isEmpty(L) == true){
-        cout<<"DATA KOSONG"<<endl;
+        first(L) = P;
+        last(L) = P;
     }else{
         next(P) = first(L);
         prev(first(L)) = P;
         first(L) = P;
     }
 }
-void hapusDataAnakTertentu(listAnak &L, address &Prec, address &P){
+address findData(listAnak L, string x)
+{
+    address P = first(L);
+    while(next(P) != NULL && info(P).nama != x){
+        P = next(P);
+    }
+    if (info(P).nama == x) {
+        return P;
+    }
+    return NULL;
+}
+void hapusDataAnakTertentu(listAnak &L, address Prec, address &P){
     if(Prec == NULL){
         delete P;
     }else if(first(L) == NULL){
@@ -83,17 +98,15 @@ void hapusDataAnakTertentu(listAnak &L, address &Prec, address &P){
         prev(P) = Prec;
     }
 }
-/**void cariDataAnak(listAnak L){
 
-}**/
 void tampilkanDataAnak(listAnak L){
-    address P = first(L);
+    address P;
+    P = first(L);
     while (P != NULL){
-        cout<<info(P).nama<<" ";
-        cout<<info(P).tmpt<<" ";
-        cout<<info(P).tl<<" ";
-        cout<<info(P).tahunlahir<<" ";
-        cout<<info(P).tempattinggal<<" ";
+        cout<<"NAMA : "<<info(P).nama<<endl;
+        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<endl;
+        cout<<"TAHUN LAHIR : "<<info(P).tahunlahir<<endl;
+        cout<<"TEMPAT TINGGAL : "<<info(P).tempattinggal<<endl;
         P = next(P);
     }
 }

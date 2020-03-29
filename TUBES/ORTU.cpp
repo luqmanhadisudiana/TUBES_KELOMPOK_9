@@ -1,5 +1,6 @@
 #include <iostream>
 #include "h.ORTU.h"
+#include "h.AMER.h"
 
 void createList(listAnak &L){
     first(L) = NULL;
@@ -74,6 +75,9 @@ void hapusDataAnakTertentu(listAnak &L, address &Prec, address &P){
         prev(P) = Prec;
     }
 }
+/**void cariDataAnak(listAnak L){
+    
+}**/
 void tampilkanDataAnak(listAnak L){
     address P = first(L);
     while (P != NULL){

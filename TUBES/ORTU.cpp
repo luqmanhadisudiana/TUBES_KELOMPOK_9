@@ -44,9 +44,17 @@ void createElementAnak(address &P){
     info(P).tahunlahir = 2020 - tahunlahir;
     cout<<endl;
 
-    cout<<"TEMPAT TINGGAL ANAK : ";
+    cout<<"SERUMAH DENGAN ANAK : "<<endl;
+    cout<<"YA"<<endl;
+    cout<<"TIDAK"<<endl;
     cin>>tempattinggal;
-    info(P).tempattinggal = tempattinggal;
+    if(tempattinggal == "YA"){
+        info(P).tempattinggal = "SERUMAH";
+    }else if(tempattinggal == "TIDAK"){
+        info(P).tempattinggal = "MISAH";
+    }else{
+        cout<<"TIDAK MILIH";
+    }
 
 }
 void tambahDataAnak(listAnak L, address P){
@@ -76,7 +84,7 @@ void hapusDataAnakTertentu(listAnak &L, address &Prec, address &P){
     }
 }
 /**void cariDataAnak(listAnak L){
-    
+
 }**/
 void tampilkanDataAnak(listAnak L){
     address P = first(L);

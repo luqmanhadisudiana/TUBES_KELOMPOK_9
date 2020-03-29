@@ -25,6 +25,7 @@ struct listAnak{
 
 void createList(listAnak &L);
 void isEmpty(listAnak L);
+void createElementAnak(address &P);
 void tambahDataAnak(listAnak L, address P);
 void hapusDataAnakTertentu(listAnak &L, address Prec, address &P);
 void tampilkanDataAnak(listAnak L);

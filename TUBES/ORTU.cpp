@@ -17,6 +17,7 @@ void createElementAnak(address &P){
     string tempattinggal;
     string tmpt;
     int tl;
+    string bln;
     int tahunlahir;
 
     P = new elmlist_anak;
@@ -24,24 +25,26 @@ void createElementAnak(address &P){
     prev(P) = NULL;
 
     cout<<"================================= MASUKAN DATA ANAK =========================================="<<endl;
-    cout<<endl;
 
     cout<<"NAMA ANAK : ";
     cin>>nama;
     info(P).nama = nama;
     cout<<endl;
 
-    cout<<"TEMPAT TANGGAL LAHIR : ";
+    cout<<"TEMPAT TANGGAL LAHIR : "<<endl;
+    cout<<"TEMPAT : ";
     cin>>tmpt;
     info(P).tmpt = tmpt;
-    cout<< " , ";
+    cout<<"TANGGAL : ";
     cin>>tl;
     info(P).tl = tl;
+    cout<<"BULAN : ";
+    cin>>bln;
+    info(P).bln = bln;
     cout<<endl;
 
     cout<<"TAHUN LAHIR : ";
     cin>>tahunlahir;
-    cout<<endl;
     cout<<"UMUR : ";
     info(P).tahunlahir = 2020 - tahunlahir;
     cout<<info(P).tahunlahir;
@@ -50,6 +53,7 @@ void createElementAnak(address &P){
     cout<<"SERUMAH DENGAN ORTU : "<<endl;
     cout<<"YA"<<endl;
     cout<<"TIDAK"<<endl;
+    cout<<"=== JAWABAN ==="<<endl;
     cin>>tempattinggal;
     if(tempattinggal == "YA"){
         info(P).tempattinggal = "SERUMAH";
@@ -58,6 +62,7 @@ void createElementAnak(address &P){
     }else{
         cout<<"TIDAK MILIH";
     }
+    cout<<endl;
 
 }
 void tambahDataAnak(listAnak &L, address P){
@@ -104,8 +109,8 @@ void tampilkanDataAnak(listAnak L){
     P = first(L);
     while (P != NULL){
         cout<<"NAMA : "<<info(P).nama<<endl;
-        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<endl;
-        cout<<"TAHUN LAHIR : "<<info(P).tahunlahir<<endl;
+        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<" "<<info(P).bln<<endl;
+        cout<<"UMUR : "<<info(P).tahunlahir<<endl;
         cout<<"TEMPAT TINGGAL : "<<info(P).tempattinggal<<endl;
         P = next(P);
     }

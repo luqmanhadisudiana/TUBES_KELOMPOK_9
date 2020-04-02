@@ -3,7 +3,6 @@
 
 void createList(listOrtu &L){
     first(L) = NULL;
-    last(L) = NULL;
 }
 bool isEmpty(listOrtu L){
     if(first(L) == NULL) {
@@ -12,9 +11,9 @@ bool isEmpty(listOrtu L){
         return false;
     }
 }
-void createElement(address &P){
+void createElement(address_AMER &P){
     string nama2, tempattinggal2, kerjaan;
-    int jumlhanak;
+    int jmlhanak;
 
     P = new elmlist_ortu;
     next(P) = NULL;
@@ -44,7 +43,7 @@ void createElement(address &P){
     info(P).jmlhanak = jmlhanak;
     cout<<endl;
 }
-void tambahDataOrtu(listOrtu &L, address P){
+void tambahDataOrtu(listOrtu &L, address_AMER P){
     if (isEmpty(L) == true){
         first(L) = P;
         last(L) = P;
@@ -54,9 +53,9 @@ void tambahDataOrtu(listOrtu &L, address P){
         first(L) = P;
     }
 }
-address findData(listOrtu L, string x)
+address_AMER findData(listOrtu L, string x)
 {
-    address P = first(L);
+    address_AMER P = first(L);
     while(next(P) != NULL && info(P).nama2 != x){
         P = next(P);
     }
@@ -65,7 +64,7 @@ address findData(listOrtu L, string x)
     }
     return NULL;
 }
-void hapusDataOrtuTertentu(listOrtu &L, address &Prec, address &P){
+void hapusDataOrtuTertentu(listOrtu &L, address_AMER &Prec, address_AMER &P){
     if(Prec == NULL){
         delete P;
     }else if(first(L) == NULL){
@@ -83,7 +82,7 @@ void hapusDataOrtuTertentu(listOrtu &L, address &Prec, address &P){
     }
 }
 void tampilkanDataOrtu(listOrtu L){
-    address P = first(L);
+    address_AMER P = first(L);
     while (P != NULL){
         cout<<"NAMA : "<<info(P).nama2<<endl;
         cout<<"TEMPAT TINGGAL :"<<info(P).tempattinggal2<<endl;
@@ -91,3 +90,4 @@ void tampilkanDataOrtu(listOrtu L){
         P = next(P);
     }
 }
+

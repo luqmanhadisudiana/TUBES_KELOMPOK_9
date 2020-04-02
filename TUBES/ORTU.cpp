@@ -12,7 +12,7 @@ bool isEmpty(listAnak L){
         return false;
     }
 }
-void createElementAnak(address &P){
+void createElementAnak(address_ORTU &P){
     string nama;
     string tempattinggal;
     string tmpt;
@@ -41,13 +41,12 @@ void createElementAnak(address &P){
     cout<<"BULAN : ";
     cin>>bln;
     info(P).bln = bln;
-    cout<<endl;
-
     cout<<"TAHUN LAHIR : ";
     cin>>tahunlahir;
-    cout<<"UMUR : ";
-    info(P).tahunlahir = 2020 - tahunlahir;
-    cout<<info(P).tahunlahir;
+    info(P).tahunlahir = tahunlahir;
+    cout<<endl;
+
+    cout<<"UMUR : "<<2020 - tahunlahir;
     cout<<endl;
 
     cout<<"SERUMAH DENGAN ORTU : "<<endl;
@@ -65,7 +64,7 @@ void createElementAnak(address &P){
     cout<<endl;
 
 }
-void tambahDataAnak(listAnak &L, address P){
+void tambahDataAnak(listAnak &L, address_ORTU P){
     if (isEmpty(L) == true){
         first(L) = P;
         last(L) = P;
@@ -75,9 +74,9 @@ void tambahDataAnak(listAnak &L, address P){
         first(L) = P;
     }
 }
-address findData(listAnak L, string x)
+address_ORTU findData(listAnak L, string x)
 {
-    address P = first(L);
+    address_ORTU P = first(L);
     while(next(P) != NULL && info(P).nama != x){
         P = next(P);
     }
@@ -86,7 +85,7 @@ address findData(listAnak L, string x)
     }
     return NULL;
 }
-void hapusDataAnakTertentu(listAnak &L, address Prec, address &P){
+void hapusDataAnakTertentu(listAnak &L, address_ORTU Prec, address_ORTU &P){
     if(Prec == NULL){
         delete P;
     }else if(first(L) == NULL){
@@ -105,12 +104,12 @@ void hapusDataAnakTertentu(listAnak &L, address Prec, address &P){
 }
 
 void tampilkanDataAnak(listAnak L){
-    address P;
+    address_ORTU P;
     P = first(L);
     while (P != NULL){
         cout<<"NAMA : "<<info(P).nama<<endl;
-        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<" "<<info(P).bln<<endl;
-        cout<<"UMUR : "<<info(P).tahunlahir<<endl;
+        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<" "<<info(P).bln<<" "<<info(P).tahunlahir<<endl;
+        cout<<"UMUR : "<<2020 - info(P).tahunlahir<<endl;
         cout<<"TEMPAT TINGGAL : "<<info(P).tempattinggal<<endl;
         P = next(P);
     }

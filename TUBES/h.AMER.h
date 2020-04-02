@@ -8,7 +8,7 @@
 
 using namespace std;
 
-typedef struct elmlist_ortu*address;
+typedef struct elmlist_ortu*address_AMER;
 struct ortu{
     string nama2;
     string tempattinggal2;
@@ -17,21 +17,21 @@ struct ortu{
 };
 struct elmlist_ortu{
     ortu info;
-    address next;
-    address prev;
+    address_AMER next;
+    address_AMER prev;
 };
 
 struct listOrtu{
-    address first;
-    address last;
+    address_AMER first;
+    address_AMER last;
 };
 
 void createList(listOrtu &L);
 bool isEmpty(listOrtu L);
-void createElement(address &P);
-void tambahDataOrtu(listOrtu &L, address P);
-void hapusDataOrtuTertentu(listOrtu &L, address Prec, address &P);
-address findData(listOrtu L, string x);
+void createElement(address_AMER &P);
+void tambahDataOrtu(listOrtu &L, address_AMER P);
+void hapusDataOrtuTertentu(listOrtu &L, address_AMER Prec, address_AMER &P);
+address_AMER findData(listOrtu L, string x);
 void tampilkanDataOrtu(listOrtu L);
 
 #endif // H_AMER_H_INCLUDED

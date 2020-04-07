@@ -13,21 +13,26 @@ int main()
     address_AMER AA;
     address_ORTU AO;
     address_RELASI AR;
+    int jmlhanak,i;
 
     createList(O);
     createList(A);
     createList(R);
 
-    AO = alokasi("BUDI");
-    tambahDataAnak(A, AO);
-    AO = alokasi("IMAN");
-    tambahDataAnak(A, AO);
-    AO = alokasi("ASEP");
-    tambahDataAnak(A, AO);
-    AO = alokasi("UJANG");
-    tambahDataAnak(A, AO);
-
     cout<<"================================= LIST ANAK =========================================="<<endl;
-    createElementAnak(AO);
+    cout << "MASUKAN JUMLAH ANAK : ";
+    cin >> jmlhanak;
+    i = 0;
+    while (i < jmlhanak) {
+        createElementAnak(AO);
+        tambahDataAnak(A, AO);
+        i++;
+    }
     tampilkanDataAnak(A);
+    cout<<endl;
+    cout<<"================================= LIST ORANG TUA ====================================="<<endl;
+    createElementOrtu(AA);
+    tambahDataOrtu(O, AA);
+    cout<<endl;
+    inputRelasi(R, O, A);
 }

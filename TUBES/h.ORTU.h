@@ -3,12 +3,13 @@
 #define next(P) P->next
 #define prev(P) P->prev
 #define info(P) P->info
+#define info1(P) P->info1
 #define first(L) L.first
 #define last(L) L.last
-#include "h.RELASI.h"
+
 
 using namespace std;
-
+typedef string infotype_ORTU;
 typedef struct elmlist_anak*address_ORTU;
 struct anak{
     string nama;
@@ -17,9 +18,12 @@ struct anak{
     int tahunlahir;
     string bln;
     string tempattinggal;
+    int jmlhanak;
+    int i;
 };
 struct elmlist_anak{
     anak info;
+    infotype_ORTU info1;
     address_ORTU next;
     address_ORTU prev;
 };
@@ -33,8 +37,9 @@ void createList(listAnak &L);
 bool isEmpty(listAnak L);
 void createElementAnak(address_ORTU &P);
 void tambahDataAnak(listAnak &L, address_ORTU P);
-address_ORTU findData(listAnak L, string x);
+address_ORTU findDataAnak(listAnak L, string x);
 void hapusDataAnakTertentu(listAnak &L, address_ORTU Prec, address_ORTU &P);
+address_ORTU alokasi(infotype_ORTU x);
 void tampilkanDataAnak(listAnak L);
 
 #endif // H_ORTU_H_INCLUDED

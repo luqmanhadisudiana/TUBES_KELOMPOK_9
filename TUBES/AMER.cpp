@@ -11,7 +11,7 @@ bool isEmpty(listOrtu L){
         return false;
     }
 }
-void createElement(address_AMER &P){
+void createElementOrtu(address_AMER &P){
     string nama2, tempattinggal2, kerjaan;
     int jmlhanak;
 
@@ -19,25 +19,18 @@ void createElement(address_AMER &P){
     next(P) = NULL;
     prev(P) = NULL;
 
-    cout<<"================================= MASUKAN DATA ANAK =========================================="<<endl;
+    cout<<"================================= MASUKAN DATA ORTU =========================================="<<endl;
     cout<<endl;
 
     cout<<"NAMA ORANG TUA : ";
     cin>>nama2;
     info(P).nama2 = nama2;
-    cout<<endl;
-
-
     cout<<"TEMPAT TINGGAL : ";
     cin>>tempattinggal2;
     info(P).tempattinggal2 = tempattinggal2;
-    cout<<endl;
-
     cout<<"KERJAAN : ";
     cin>>kerjaan;
     info(P).kerjaan = kerjaan;
-    cout<<endl;
-
     cout<<"JUMLAH ANAK : ";
     cin>>jmlhanak;
     info(P).jmlhanak = jmlhanak;
@@ -53,7 +46,7 @@ void tambahDataOrtu(listOrtu &L, address_AMER P){
         first(L) = P;
     }
 }
-address_AMER findData(listOrtu L, string x)
+address_AMER findDataOrtu(listOrtu L, string x)
 {
     address_AMER P = first(L);
     while(next(P) != NULL && info(P).nama2 != x){
@@ -88,6 +81,7 @@ void tampilkanDataOrtu(listOrtu L){
         cout<<"TEMPAT TINGGAL :"<<info(P).tempattinggal2<<endl;
         cout<<"KERJAAN : "<<info(P).kerjaan<<endl;
         P = next(P);
+        cout<<endl;
     }
 }
 

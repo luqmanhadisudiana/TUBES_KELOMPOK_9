@@ -19,6 +19,8 @@ void createElementAnak(address_ORTU &P){
     int tl;
     string bln;
     int tahunlahir;
+    int jmlhanak;
+    int i;
 
     P = new elmlist_anak;
     next(P) = NULL;
@@ -26,55 +28,63 @@ void createElementAnak(address_ORTU &P){
 
     cout<<"================================= MASUKAN DATA ANAK =========================================="<<endl;
 
-    cout<<"NAMA ANAK : ";
-    cin>>nama;
-    info(P).nama = nama;
-    cout<<endl;
+    cout<<"JUMLAH ANAK : ";
+    info(P).jmlhanak = jmlhanak;
+    cout << info(P).jmlhanak;
+    cout << endl;
 
-    cout<<"TEMPAT TANGGAL LAHIR : "<<endl;
-    cout<<"TEMPAT : ";
-    cin>>tmpt;
-    info(P).tmpt = tmpt;
-    cout<<"TANGGAL : ";
-    cin>>tl;
-    info(P).tl = tl;
-    cout<<"BULAN : ";
-    cin>>bln;
-    info(P).bln = bln;
-    cout<<"TAHUN LAHIR : ";
-    cin>>tahunlahir;
-    info(P).tahunlahir = tahunlahir;
-    cout<<endl;
+        cout<<"NAMA ANAK : ";
+        cin>>nama;
+        info(P).nama = nama;
+        cout<<endl;
 
-    cout<<"UMUR : "<<2020 - tahunlahir;
-    cout<<endl;
+        cout<<"TEMPAT TANGGAL LAHIR : "<<endl;
+        cout<<"TEMPAT : ";
+        cin>>tmpt;
+        info(P).tmpt = tmpt;
+        cout<<"TANGGAL : ";
+        cin>>tl;
+        info(P).tl = tl;
+        cout<<"BULAN : ";
+        cin>>bln;
+        info(P).bln = bln;
+        cout<<"TAHUN LAHIR : ";
+        cin>>tahunlahir;
+        info(P).tahunlahir = tahunlahir;
+        cout<<endl;
 
-    cout<<"SERUMAH DENGAN ORTU : "<<endl;
-    cout<<"YA"<<endl;
-    cout<<"TIDAK"<<endl;
-    cout<<"=== JAWABAN ==="<<endl;
-    cin>>tempattinggal;
-    if(tempattinggal == "YA"){
-        info(P).tempattinggal = "SERUMAH";
-    }else if(tempattinggal == "TIDAK"){
-        info(P).tempattinggal = "MISAH";
-    }else{
-        cout<<"TIDAK MILIH";
-    }
-    cout<<endl;
+        cout<<"UMUR : "<<2020 - tahunlahir;
+        cout<<endl;
+
+        cout<<"SERUMAH DENGAN ORTU : "<<endl;
+        cout<<"YA"<<endl;
+        cout<<"TIDAK"<<endl;
+        cout<<"=== JAWABAN ==="<<endl;
+        cin>>tempattinggal;
+        if(tempattinggal == "YA"){
+            info(P).tempattinggal = "SERUMAH";
+        }else if(tempattinggal == "TIDAK"){
+            info(P).tempattinggal = "MISAH";
+        }else{
+            cout<<"TIDAK MILIH";
+        }
+        i = i + 1;
+        cout<<endl;
+
 
 }
+
 void tambahDataAnak(listAnak &L, address_ORTU P){
     if (isEmpty(L) == true){
         first(L) = P;
         last(L) = P;
     }else{
-        next(P) = first(L);
-        prev(first(L)) = P;
-        first(L) = P;
+        prev(P) = last(L);
+        next(last(L)) = P;
+        last(L) = P;
     }
 }
-address_ORTU findData(listAnak L, string x)
+address_ORTU findDataAnak(listAnak L, string x)
 {
     address_ORTU P = first(L);
     while(next(P) != NULL && info(P).nama != x){
@@ -103,13 +113,22 @@ void hapusDataAnakTertentu(listAnak &L, address_ORTU Prec, address_ORTU &P){
     }
 }
 
+address_ORTU alokasi(infotype_ORTU x) {
+    address_ORTU P;
+    P = new elmlist_anak;
+    info1(P) = x;
+    next(P) = NULL;
+    return P;
+}
+
 void tampilkanDataAnak(listAnak L){
     address_ORTU P;
     P = first(L);
     while (P != NULL){
-        cout<<"NAMA : "<<info(P).nama<<endl;
-        cout<<"TTL : "<<info(P).tmpt<<" , "<<info(P).tl<<" "<<info(P).bln<<" "<<info(P).tahunlahir<<endl;
-        cout<<"UMUR : "<<2020 - info(P).tahunlahir<<endl;
+        cout<<"JUMLAH ANAK    : "<<info(P).jmlhanak<<endl;
+        cout<<"NAMA           : "<<info(P).nama<<endl;
+        cout<<"TTL            : "<<info(P).tmpt<<" , "<<info(P).tl<<" "<<info(P).bln<<" "<<info(P).tahunlahir<<endl;
+        cout<<"UMUR           : "<<2020 - info(P).tahunlahir<<endl;
         cout<<"TEMPAT TINGGAL : "<<info(P).tempattinggal<<endl;
         P = next(P);
     }

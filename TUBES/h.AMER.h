@@ -28,10 +28,10 @@ struct listOrtu{
 
 void createList(listOrtu &L);
 bool isEmpty(listOrtu L);
-void createElement(address_AMER &P);
+void createElementOrtu(address_AMER &P);
 void tambahDataOrtu(listOrtu &L, address_AMER P);
 void hapusDataOrtuTertentu(listOrtu &L, address_AMER Prec, address_AMER &P);
-address_AMER findData(listOrtu L, string x);
+address_AMER findDataOrtu(listOrtu L, string x);
 void tampilkanDataOrtu(listOrtu L);
 
 #endif // H_AMER_H_INCLUDED
